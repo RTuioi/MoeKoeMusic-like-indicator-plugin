@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "歌曲收藏状态指示器",
+  "plugin_id": "like-indicator-plugin",
+  "version": "1.0.0",
+  "description": "为底部播放栏和全屏歌词界面,添加已收藏歌曲的,收藏红心状态反馈，让已收藏的歌曲红心状态不再是灰色。其他说明：刚搓出来只测试了,我的歌单、收藏歌单、首页推荐的歌单、搜索界面、排行榜、歌手页，私人推荐暂时无法测试。如使用插件出现问题，欢迎反馈，请说明是哪首歌曲且需带上日志。",
+  "moekoe": true,
+  "minversion": "1.6.7",
+  "author": {
+    "name": "且随风",
+    "url": "https://github.com/RTuioi/MoeKoeMusic-like-indicator-plugin"
+  },
+  "permissions": [],
+  "host_permissions": [
+    "http://127.0.0.1:*/*",
+    "http://localhost:*/*",
+    "file://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1:*/*", "http://localhost:*/*", "file://*/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["http://127.0.0.1:*/*", "http://localhost:*/*", "file://*/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
