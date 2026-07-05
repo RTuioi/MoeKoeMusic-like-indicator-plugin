@@ -643,12 +643,9 @@
       clearTimeout(debounceTimer);
       debounceTimer = null;
     }
-    // 清理主世界补丁
+    // 清理主世界补丁（CSP 禁止内联脚本，改用事件派发触发 injected.js 的清理函数）
     try {
-      var script = document.createElement('script');
-      script.textContent = 'if(window.__MOEKOE_LIKE_CLEANUP__)window.__MOEKOE_LIKE_CLEANUP__()';
-      (document.head || document.documentElement).appendChild(script);
-      script.remove();
+      document.dispatchEvent(new CustomEvent('moekoe-like-cleanup'));
     } catch (e) {}
     log('资源已清理');
   }
