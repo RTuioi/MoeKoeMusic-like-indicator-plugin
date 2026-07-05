@@ -1,0 +1,23 @@
+.extra-btn,
+.extra-btn i {
+  transition: color 0.3s ease;
+}
+
+/* 全屏歌词页红心过渡动画 */
+.like-btn,
+.like-btn i {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* 播放栏红心已收藏状态 */
+.extra-btn.moekoe-liked,
+.extra-btn.moekoe-liked i {
+  color: var(--primary-color) !important;
+}
+
+/* 全屏歌词页红心已收藏状态 */
+.player-controls .like-btn.moekoe-liked,
+.player-controls .like-btn.moekoe-liked i {
+  color: var(--primary-color) !important;
+  opacity: 1 !important;
+}
