@@ -225,4 +225,11 @@
     delete window.__MOEKOE_LIKE_CLEANUP__;
     delete window.__MOEKOE_LIKE_INJECTED__;
   };
+
+  // 监听 content.js 的清理事件（CSP 禁止内联脚本，改用事件派发触发清理）
+  document.addEventListener('moekoe-like-cleanup', function () {
+    if (window.__MOEKOE_LIKE_CLEANUP__) {
+      window.__MOEKOE_LIKE_CLEANUP__();
+    }
+  });
 })();
